@@ -9,6 +9,18 @@ import static EnigmaTwo.enigmaProcessor.processor;
 
 public abstract class enigmaUsrInptAndErrChck
 {
+    private static String ErrorMessage;
+
+    public static void setErrorMessage(String ErrMsg)
+    {
+        ErrorMessage = ErrMsg;
+    }
+
+    public static String getErrorMessage()
+    {
+        return ErrorMessage;
+    }
+
     public static Integer getInInt()
     {
         Integer options = 0;
@@ -20,6 +32,7 @@ public abstract class enigmaUsrInptAndErrChck
         catch (Exception e)
         {
             System.out.println("Error: you didn't enter a valid option");
+            setErrorMessage("Didn't enter an Integer");
         }
         return options;
     }
@@ -42,6 +55,7 @@ public abstract class enigmaUsrInptAndErrChck
         catch (Exception e)
         {
             System.out.println("Error: you didn't enter a valid option");
+            setErrorMessage("Didn't enter a String");
         }
         return input;
     }
@@ -64,6 +78,7 @@ public abstract class enigmaUsrInptAndErrChck
         catch (Exception e)
         {
             System.out.println("Error: you didn't enter a valid option");
+            setErrorMessage("Didn't enter all letters");
         }
         return input;
     }
@@ -73,7 +88,7 @@ public abstract class enigmaUsrInptAndErrChck
         if (i > 20)
         {
             System.out.println("You have entered too many wrong choices program will exit!!");
-            System.exit(0);
+            setErrorMessage("Motor Choice was entered wrong too many times");
         }
 
         else if (SpindleChoice == 0 || SpindleChoice > 5)
@@ -108,12 +123,17 @@ public abstract class enigmaUsrInptAndErrChck
         }
     }
 
-    public static void rotatorOption(Integer option)
+    public static void rotatorOption(Integer option, int i)
     {
-        if (option == 0 || option > 26)
+        if (i > 20)
+        {
+            System.out.println("You have entered too many wrong choices program will exit!!");
+            setErrorMessage("Rotator Option was entered wrong too many times");
+        }
+        else if (option == 0 || option > 26)
         {
             System.out.println("You must choose a number between 1 and 26: ");
-            rotatorOption(getInInt());
+            rotatorOption(getInInt(),i+1);
         }
 
         else if (getRotatorOneOption() == null)
@@ -132,12 +152,18 @@ public abstract class enigmaUsrInptAndErrChck
         }
     }
 
-    public static void plugAmt(Integer plugAmt)
+    public static void plugAmt(Integer plugAmt, int i)
     {
-        if (plugAmt == 0 || plugAmt > 13)
+        if (i > 20)
+        {
+            System.out.println("You have entered too many wrong choices program will exit!!");
+            setErrorMessage("Plug amount was entered wrong too many times");
+        }
+
+        else if (plugAmt == 0 || plugAmt > 13)
         {
             System.out.println("You can only have 13 cables and they must be a number: ");
-            plugAmt(getInInt());
+            plugAmt(getInInt(), i+1);
         }
 
         else

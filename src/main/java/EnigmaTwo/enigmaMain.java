@@ -18,16 +18,16 @@ public class enigmaMain
         motorChoice(getInInt(),1);
 
         System.out.println("Please enter the number on the first motor: ");
-        rotatorOption(getInInt());
+        rotatorOption(getInInt(),1);
 
         System.out.println("Please enter the number on the second motor: ");
-        rotatorOption(getInInt());
+        rotatorOption(getInInt(),1);
 
         System.out.println("Please enter the number on the third motor: ");
-        rotatorOption(getInInt());
+        rotatorOption(getInInt(),1);
 
         System.out.println("Please enter the amount of cables:");
-        plugAmt(getInInt());
+        plugAmt(getInInt(),1);
 
         plugInput();
 

@@ -4,14 +4,26 @@ import EnigmaTwo.enigmaUsrInptAndErrChck;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static EnigmaTwo.enigmaUsrInptAndErrChck.getErrorMessage;
+
 public class enigmaPlugsTest extends enigmaPlugBox
 {
     @Test
     void plugAmtTest()
     {
-        enigmaUsrInptAndErrChck.plugAmt(4);
+        enigmaUsrInptAndErrChck.plugAmt(4,1);
 
         Assertions.assertEquals(4, enigmaPlugBox.getPlugAmt(), "The Amount of plugs is not equal");
+    }
+
+    @Test
+    void plugAmtErrorTest()
+    {
+        enigmaUsrInptAndErrChck.plugAmt(14,1);
+
+        Assertions.assertEquals("Plug amount was entered wrong too many times", getErrorMessage());
+
+
     }
 
     @Test
