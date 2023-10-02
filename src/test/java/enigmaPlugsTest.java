@@ -22,8 +22,6 @@ public class enigmaPlugsTest extends enigmaPlugBox
         enigmaUsrInptAndErrChck.plugAmt(14,1);
 
         Assertions.assertEquals("Plug amount was entered wrong too many times", getErrorMessage());
-
-
     }
 
     @Test
@@ -36,11 +34,20 @@ public class enigmaPlugsTest extends enigmaPlugBox
     }
 
     @Test
-    void plugChoicesTest2()
+    void plugChoicesErrorTest()
     {
         enigmaPlugBox.setPlugs(enigmaUsrInptAndErrChck.plug1("A", 1), enigmaUsrInptAndErrChck.plug2("A", 1));
         enigmaPlugBox.setPlugs(enigmaUsrInptAndErrChck.plug1("B", 1), enigmaUsrInptAndErrChck.plug2("B", 1));
 
-        Assertions.assertTrue(enigmaPlugBox.plugMap.containsValue("Error"));
+        Assertions.assertEquals("Too many tries to enter the plug letter",getErrorMessage());
+    }
+
+    @Test
+    void plugChoicesErrorTest2()
+    {
+        enigmaPlugBox.setPlugs(enigmaUsrInptAndErrChck.plug1("A", 1), enigmaUsrInptAndErrChck.plug2("B", 1));
+        enigmaPlugBox.setPlugs(enigmaUsrInptAndErrChck.plug1("A", 1), enigmaUsrInptAndErrChck.plug2("B", 1));
+
+        Assertions.assertEquals("Too many tries to enter the plug letter",getErrorMessage());
     }
 }

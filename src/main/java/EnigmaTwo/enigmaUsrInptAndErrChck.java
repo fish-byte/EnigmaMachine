@@ -177,7 +177,7 @@ public abstract class enigmaUsrInptAndErrChck
         if (i > 20)
         {
             System.out.println("You have entered too many wrong choices program will exit!!");
-            System.exit(0);
+            setErrorMessage("Too many tries to enter the plug letter");
         }
 
         else if (plug.contains("Error"))
@@ -203,6 +203,7 @@ public abstract class enigmaUsrInptAndErrChck
         if (i > 20)
         {
             System.out.println("You have entered too many wrong choices program will exit!!");
+            setErrorMessage("Too many tries to enter the plug letter");
         }
 
         else if (plug.equals("Error"))

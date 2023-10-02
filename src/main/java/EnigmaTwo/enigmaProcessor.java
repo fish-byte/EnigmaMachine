@@ -100,7 +100,7 @@ public abstract class enigmaProcessor
         return key;
     }
 
-    private static HashMap<Integer, Integer> getRotatorBuffer(Integer Choice)
+    protected static HashMap<Integer, Integer> getRotatorBuffer(Integer Choice)
     {
         rotateMotor.clear();
         for (int i = 1; i <= 26 - (Choice - 1); i++)
