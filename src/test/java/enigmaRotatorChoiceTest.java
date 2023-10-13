@@ -14,25 +14,34 @@ public class enigmaRotatorChoiceTest
         motorChoice(1,1);
 
         Assertions.assertEquals(getSpindleOne(), getRotatorOne(), "The Rotator Selected was not 1");
+
+        enigmaTest.clear();
     }
 
     @Test
     void rotatorChoiceTest2()
     {
+        motorChoice(1,1);
         motorChoice(4,1);
 
         Assertions.assertEquals(getSpindleOne(), getRotatorOne(), "The Rotator Selected was not 1");
         Assertions.assertEquals(getSpindleFour(), getRotatorTwo(), "The Rotator Selected was not 4");
+
+        enigmaTest.clear();
     }
 
     @Test
     void rotatorChoiceTest3()
     {
+        motorChoice(1,1);
+        motorChoice(4,1);
         motorChoice(2,1);
 
         Assertions.assertEquals(getSpindleOne(), getRotatorOne(), "The Rotator Selected was not 1");
         Assertions.assertEquals(getSpindleFour(), getRotatorTwo(), "The Rotator Selected was not 4");
         Assertions.assertEquals(getSpindleTwo(), getRotatorThree(), "The Rotator Selected was not 2");
+
+        enigmaTest.clear();
     }
 
     @Test
@@ -43,5 +52,7 @@ public class enigmaRotatorChoiceTest
         motorChoice(1,1);
 
         Assertions.assertEquals("Motor Choice was entered wrong too many times", getErrorMessage());
+
+        enigmaTest.clear();
     }
 }
