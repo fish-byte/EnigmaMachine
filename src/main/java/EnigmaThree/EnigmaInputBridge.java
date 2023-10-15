@@ -1,5 +1,7 @@
 package EnigmaThree;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 public class EnigmaInputBridge {
@@ -13,7 +15,7 @@ public class EnigmaInputBridge {
     private Integer rotatorNumberOneOption;
     private Integer rotatorNumberTwoOption;
     private Integer rotatorNumberThreeOption;
-
+    private String ErrorMessage;
 
     public HashMap<Integer, Integer> getSpindle(Integer spindleNum)
     {
@@ -124,9 +126,127 @@ public class EnigmaInputBridge {
         this.rotatorNumberThreeOption = rotatorNumberThreeOption;
     }
 
+    public void setErrorMessage(String ErrorMessage)
+    {
+        this.ErrorMessage = ErrorMessage;
+    }
+
+    public String getErrorMessage()
+    {
+        return ErrorMessage;
+    }
+
+    public Integer getInInt()
+    {
+        Integer options = 0;
+        try
+        {
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            options = Integer.valueOf(input.readLine());
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: you didn't enter a valid option");
+            setErrorMessage("Error: you didn't enter a valid option");
+        }
+        return options;
+    }
+
+    public String getInString()
+    {
+        String input = "Error";
+
+        try
+        {
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            input = in.readLine().toUpperCase();
+
+            if (!input.matches("^[A-Z]$"))
+            {
+                input = "Error";
+            }
+        }
+
+        catch (Exception e)
+        {
+            System.out.println("Didn't enter a String");
+            setErrorMessage("Didn't enter a String");
+        }
+        return input;
+    }
+
     public Integer getRotatorThreeOption()
     {
         return rotatorNumberThreeOption;
+    }
+
+    public void motorChoice(Integer SpindleChoice, int i)
+    {
+        if (i > 20)
+        {
+            System.out.println("You have entered too many wrong choices program will exit!!");
+            setErrorMessage("Motor Choice was entered wrong too many times");
+        }
+
+        else if (SpindleChoice == 0 || SpindleChoice > 5)
+        {
+            System.out.println("You must choose a spindle between 1 and 5: ");
+            motorChoice(getInInt(), i+1);
+        }
+
+        else if (SpindleChoice.equals(getRotatorNumberOne()) || SpindleChoice.equals(getRotatorNumberTwo()))
+        {
+            System.out.println("Rotator number " + getRotatorNumberOne() + " is already in use");
+            System.out.println("Please enter the rotator you want to use: ");
+            motorChoice(getInInt(), i+1);
+
+        }
+
+        else if (getRotatorOne() == null)
+        {
+            setRotatorNumberOne(SpindleChoice);
+            setRotatorOne(SpindleChoice);
+        }
+
+        else if (getRotatorTwo() == null)
+        {
+            setRotatorNumberTwo(SpindleChoice);
+            setRotatorTwo(SpindleChoice);
+        }
+
+        else if (getRotatorThree() == null)
+        {
+            setRotatorThree(SpindleChoice);
+        }
+    }
+
+    public void rotatorOption(Integer option, int i)
+    {
+        if (i > 20)
+        {
+            System.out.println("You have entered too many wrong choices program will exit!!");
+            setErrorMessage("Rotator Option was entered wrong too many times");
+        }
+        else if (option == 0 || option > 26)
+        {
+            System.out.println("You must choose a number between 1 and 26: ");
+            rotatorOption(getInInt(),i+1);
+        }
+
+        else if (getRotatorOneOption() == null)
+        {
+            setRotatorOneOption(option);
+        }
+
+        else if (getRotatorTwoOption() == null)
+        {
+            setRotatorTwoOption(option);
+        }
+
+        else if (getRotatorThreeOption() == null)
+        {
+            setRotatorThreeOption(option);
+        }
     }
 
 }

@@ -1,15 +1,18 @@
 package EnigmaThree;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static EnigmaThree.EnigmaPlugBox.getPlugLetter;
 
-public class EnigmaProcessor
+
+public class EnigmaProcessor extends EnigmaInputBridge
 {
+    private String ErrorMessage;
     EnigmaRotator rotator = new EnigmaRotator();
-    EnigmaPlugBox plugBox = new EnigmaPlugBox();
-    EnigmaInputBridge inputBridge = new EnigmaInputBridge();
     private HashMap<Integer,Integer> rotateMotor = new HashMap<>();
 
     public void processor(String InputLine)
@@ -25,46 +28,46 @@ public class EnigmaProcessor
             notchThreeSpin();
 
             //Input Wheel
-            Integer two = rotator.getInputWheel().get(plugBox.getPlugLetter(alpha));
+            Integer two = rotator.getInputWheel().get(getPlugLetter(alpha));
 
             //Rotor 1
-            Integer three = getRotatorBuffer(inputBridge.getRotatorOneOption()).get(two);
-            Integer four = inputBridge.getRotatorOne().get(three);
-            Integer five = getRotatorBuffer(inputBridge.getRotatorOneOption()).get(four);
+            Integer three = getRotatorBuffer(getRotatorOneOption()).get(two);
+            Integer four = getRotatorOne().get(three);
+            Integer five = getRotatorBuffer(getRotatorOneOption()).get(four);
 
             //Rotor 2
-            Integer six = getRotatorBuffer(inputBridge.getRotatorTwoOption()).get(five);
-            Integer seven = inputBridge.getRotatorTwo().get(six);
-            Integer eight = getRotatorBuffer(inputBridge.getRotatorTwoOption()).get(seven);
+            Integer six = getRotatorBuffer(getRotatorTwoOption()).get(five);
+            Integer seven = getRotatorTwo().get(six);
+            Integer eight = getRotatorBuffer(getRotatorTwoOption()).get(seven);
 
             //Rotor 3
-            Integer nine = getRotatorBuffer(inputBridge.getRotatorThreeOption()).get(eight);
-            Integer ten = inputBridge.getRotatorThree().get(nine);
-            Integer eleven = getRotatorBuffer(inputBridge.getRotatorThreeOption()).get(ten);
+            Integer nine = getRotatorBuffer(getRotatorThreeOption()).get(eight);
+            Integer ten = getRotatorThree().get(nine);
+            Integer eleven = getRotatorBuffer(getRotatorThreeOption()).get(ten);
 
             //Reflector
             Integer twelve = rotator.getReflector().get(eleven);
 
             //Rotor 3
-            Integer thirteen = getKeyN(getRotatorBuffer(inputBridge.getRotatorThreeOption()), twelve);
-            Integer fourteen = getKeyN(inputBridge.getRotatorThree(), thirteen);
-            Integer fifteen = getKeyN(getRotatorBuffer(inputBridge.getRotatorThreeOption()), fourteen);
+            Integer thirteen = getKeyN(getRotatorBuffer(getRotatorThreeOption()), twelve);
+            Integer fourteen = getKeyN(getRotatorThree(), thirteen);
+            Integer fifteen = getKeyN(getRotatorBuffer(getRotatorThreeOption()), fourteen);
 
             //Rotor 2
-            Integer sixteen = getKeyN(getRotatorBuffer(inputBridge.getRotatorTwoOption()), fifteen);
-            Integer seventeen = getKeyN(inputBridge.getRotatorTwo(), sixteen);
-            Integer eighteen = getKeyN(getRotatorBuffer(inputBridge.getRotatorTwoOption()), seventeen);
+            Integer sixteen = getKeyN(getRotatorBuffer(getRotatorTwoOption()), fifteen);
+            Integer seventeen = getKeyN(getRotatorTwo(), sixteen);
+            Integer eighteen = getKeyN(getRotatorBuffer(getRotatorTwoOption()), seventeen);
 
             //Rotor 1
-            Integer nineteen = getKeyN(getRotatorBuffer(inputBridge.getRotatorOneOption()), eighteen);
-            Integer twenty = getKeyN(inputBridge.getRotatorOne(), nineteen);
-            Integer twentyOne = getKeyN(getRotatorBuffer(inputBridge.getRotatorOneOption()), twenty);
+            Integer nineteen = getKeyN(getRotatorBuffer(getRotatorOneOption()), eighteen);
+            Integer twenty = getKeyN(getRotatorOne(), nineteen);
+            Integer twentyOne = getKeyN(getRotatorBuffer(getRotatorOneOption()), twenty);
 
             //Input Wheel
             String twentyTwo = getKeyA(rotator.getInputWheel(), twentyOne);
 
             //Plug Box
-            System.out.print(plugBox.getPlugLetter(twentyTwo));
+            System.out.print(getPlugLetter(twentyTwo));
         }
     }
 
@@ -124,81 +127,129 @@ public class EnigmaProcessor
 
     private void checkNotches()
     {
-        if (inputBridge.getRotatorOneOption() > 26)
+        if (getRotatorOneOption() > 26)
         {
-            inputBridge.setRotatorOneOption(0);
+            setRotatorOneOption(0);
         }
 
-        else if (inputBridge.getRotatorTwoOption() > 26)
+        else if (getRotatorTwoOption() > 26)
         {
-            inputBridge.setRotatorTwoOption(0);
+            setRotatorTwoOption(0);
         }
 
-        else if (inputBridge.getRotatorThreeOption() > 26)
+        else if (getRotatorThreeOption() > 26)
         {
-            inputBridge.setRotatorThreeOption(0);
+            setRotatorThreeOption(0);
         }
 
     }
 
     private void notchOneSpin()
     {
-        inputBridge.setRotatorOneOption(inputBridge.getRotatorOneOption() + 1);
+        setRotatorOneOption(getRotatorOneOption() + 1);
     }
 
     private void notchTwoSpin()
     {
-        if (inputBridge.getRotatorTwo() == rotator.getSpindleOne() & inputBridge.getRotatorOneOption() == 8)
+        if (getRotatorTwo() == rotator.getSpindleOne() & getRotatorOneOption() == 8)
         {
-            inputBridge.setRotatorTwoOption(inputBridge.getRotatorTwoOption() + 1);
+            setRotatorTwoOption(getRotatorTwoOption() + 1);
         }
 
-        else if (inputBridge.getRotatorTwo() == rotator.getSpindleTwo() & inputBridge.getRotatorOneOption() == 5)
+        else if (getRotatorTwo() == rotator.getSpindleTwo() & getRotatorOneOption() == 5)
         {
-            inputBridge.setRotatorTwoOption(inputBridge.getRotatorTwoOption() + 1);
+            setRotatorTwoOption(getRotatorTwoOption() + 1);
         }
 
-        else if (inputBridge.getRotatorTwo() == rotator.getSpindleThree() & inputBridge.getRotatorOneOption() == 12)
+        else if (getRotatorTwo() == rotator.getSpindleThree() & getRotatorOneOption() == 12)
         {
-            inputBridge.setRotatorTwoOption(inputBridge.getRotatorTwoOption() + 1);
+            setRotatorTwoOption(getRotatorTwoOption() + 1);
         }
 
-        else if (inputBridge.getRotatorTwo() == rotator.getSpindleFour() & inputBridge.getRotatorOneOption() == 18)
+        else if (getRotatorTwo() == rotator.getSpindleFour() & getRotatorOneOption() == 18)
         {
-            inputBridge.setRotatorTwoOption(inputBridge.getRotatorTwoOption() + 1);
+            setRotatorTwoOption(getRotatorTwoOption() + 1);
         }
 
-        else if (inputBridge.getRotatorTwo() == rotator.getSpindleFive() & inputBridge.getRotatorOneOption() == 21)
+        else if (getRotatorTwo() == rotator.getSpindleFive() & getRotatorOneOption() == 21)
         {
-            inputBridge.setRotatorTwoOption(inputBridge.getRotatorTwoOption() + 1);
+            setRotatorTwoOption(getRotatorTwoOption() + 1);
         }
     }
 
     private void notchThreeSpin()
     {
-        if (inputBridge.getRotatorThree() == rotator.getSpindleOne() & inputBridge.getRotatorTwoOption() == 20)
+        if (getRotatorThree() == rotator.getSpindleOne() & getRotatorTwoOption() == 20)
         {
-            inputBridge.setRotatorThreeOption(inputBridge.getRotatorThreeOption() + 1);
+            setRotatorThreeOption(getRotatorThreeOption() + 1);
         }
 
-        else if (inputBridge.getRotatorThree() == rotator.getSpindleTwo() & inputBridge.getRotatorTwoOption() == 15)
+        else if (getRotatorThree() == rotator.getSpindleTwo() & getRotatorTwoOption() == 15)
         {
-            inputBridge.setRotatorThreeOption(inputBridge.getRotatorThreeOption() + 1);
+            setRotatorThreeOption(getRotatorThreeOption() + 1);
         }
 
-        else if (inputBridge.getRotatorThree() == rotator.getSpindleThree() & inputBridge.getRotatorTwoOption() == 18)
+        else if (getRotatorThree() == rotator.getSpindleThree() & getRotatorTwoOption() == 18)
         {
-            inputBridge.setRotatorThreeOption(inputBridge.getRotatorThreeOption() + 1);
+            setRotatorThreeOption(getRotatorThreeOption() + 1);
         }
 
-        else if (inputBridge.getRotatorThree() == rotator.getSpindleFour() & inputBridge.getRotatorTwoOption() == 10)
+        else if (getRotatorThree() == rotator.getSpindleFour() & getRotatorTwoOption() == 10)
         {
-            inputBridge.setRotatorThreeOption(inputBridge.getRotatorThreeOption() + 1);
+            setRotatorThreeOption(getRotatorThreeOption() + 1);
         }
 
-        else if (inputBridge.getRotatorTwo() == rotator.getSpindleFive() & inputBridge.getRotatorTwoOption() == 6)
+        else if (getRotatorTwo() == rotator.getSpindleFive() & getRotatorTwoOption() == 6)
         {
-            inputBridge.setRotatorThreeOption(inputBridge.getRotatorThreeOption() + 1);
+            setRotatorThreeOption(getRotatorThreeOption() + 1);
+        }
+    }
+
+    public void setErrorMessage(String ErrorMessage)
+    {
+        this.ErrorMessage = ErrorMessage;
+    }
+
+    public String getErrorMessage()
+    {
+        return ErrorMessage;
+    }
+
+    public String getInMsg()
+    {
+        String input = "Error";
+
+        try
+        {
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            input = in.readLine().toUpperCase().replaceAll("\\s+","");
+
+            if (!input.matches("^[A-Z]*$"))
+            {
+                input = "Error";
+            }
+        }
+
+        catch (Exception e)
+        {
+            System.out.println("Error: you didn't enter a valid option");
+            setErrorMessage("Didn't enter all letters");
+        }
+        return input;
+    }
+
+    public void encryptDecrypt(String msg)
+    {
+        if (msg.contains("Error"))
+        {
+            System.out.println("The input was not valid, it needs to be only letters");
+            System.out.println("Please type the message which you want to encrypt or decrypt: ");
+            encryptDecrypt(getInMsg());
+        }
+
+        else
+        {
+           processor(msg);
         }
     }
 }
