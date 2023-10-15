@@ -15,6 +15,8 @@ public class EnigmaProcessor extends EnigmaInputBridge
     EnigmaRotator rotator = new EnigmaRotator();
     private HashMap<Integer,Integer> rotateMotor = new HashMap<>();
 
+    StringBuffer output = new StringBuffer();
+
     public void processor(String InputLine)
     {
         for (int i = 0; i < InputLine.length(); i++)
@@ -27,8 +29,11 @@ public class EnigmaProcessor extends EnigmaInputBridge
             notchTwoSpin();
             notchThreeSpin();
 
+            //Plug Box
+            String one = getPlugLetter(alpha);
+
             //Input Wheel
-            Integer two = rotator.getInputWheel().get(getPlugLetter(alpha));
+            Integer two = rotator.getInputWheel().get(one);
 
             //Rotor 1
             Integer three = getRotatorBuffer(getRotatorOneOption()).get(two);
@@ -67,8 +72,16 @@ public class EnigmaProcessor extends EnigmaInputBridge
             String twentyTwo = getKeyA(rotator.getInputWheel(), twentyOne);
 
             //Plug Box
-            System.out.print(getPlugLetter(twentyTwo));
+            String twentyFour = getPlugLetter(twentyTwo);
+
+            //System.out.print(twentyFour);
+            output.append(twentyFour);
         }
+    }
+
+    public String getOutput()
+    {
+        return output.toString();
     }
 
     private Integer getKeyN(HashMap<Integer, Integer> map, Integer value)

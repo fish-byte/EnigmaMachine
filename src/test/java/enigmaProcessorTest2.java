@@ -1,34 +1,17 @@
 import EnigmaThree.EnigmaPlugBox;
 import EnigmaThree.EnigmaProcessor;
 import EnigmaThree.EnigmaRotator;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static EnigmaThree.EnigmaPlugBox.getPlugs;
 
 public class enigmaProcessorTest2
 {
-    private final PrintStream standardOut = System.out;
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
     EnigmaProcessor processor = new EnigmaProcessor();
     EnigmaPlugBox plugBox = new EnigmaPlugBox();
     EnigmaRotator rotator = new EnigmaRotator();
-
-    @BeforeEach
-    public void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
-
-    @AfterEach
-    public void tearDown() {
-        System.setOut(standardOut);
-    }
 
     @Test
     void encryptionTest()
@@ -54,7 +37,7 @@ public class enigmaProcessorTest2
         Assertions.assertEquals(rotator.getSpindleOne(), processor.getRotatorThree(), "The Rotator Selected was not 1");
 
         Assertions.assertEquals("{A=B, B=A, C=D, D=C}", getPlugs().toString(), "The plugs are not there");
-        Assertions.assertEquals("OBAY", outputStreamCaptor.toString().trim());
+        Assertions.assertEquals("OBAY", processor.getOutput());
 
     }
 
@@ -82,7 +65,7 @@ public class enigmaProcessorTest2
         Assertions.assertEquals(rotator.getSpindleOne(), processor.getRotatorThree(), "The Rotator Selected was not 1");
 
         Assertions.assertEquals("{A=B, B=A, C=D, D=C}", getPlugs().toString(), "The plugs are not there");
-        Assertions.assertEquals("TEST", outputStreamCaptor.toString().trim());
+        Assertions.assertEquals("TEST", processor.getOutput());
     }
 
     @Test
@@ -106,7 +89,7 @@ public class enigmaProcessorTest2
         Assertions.assertEquals(rotator.getSpindleOne(), processor.getRotatorThree(), "The Rotator Selected was not 1");
 
         Assertions.assertEquals("{}", getPlugs().toString(), "The plugs are not there");
-        Assertions.assertEquals("OABY", outputStreamCaptor.toString().trim());
+        Assertions.assertEquals("OABY", processor.getOutput());
 
     }
 
@@ -131,6 +114,6 @@ public class enigmaProcessorTest2
         Assertions.assertEquals(rotator.getSpindleOne(), processor.getRotatorThree(), "The Rotator Selected was not 1");
 
         Assertions.assertEquals("{}", getPlugs().toString(), "The plugs are not there");
-        Assertions.assertEquals("TEST", outputStreamCaptor.toString().trim());
+        Assertions.assertEquals("TEST", processor.getOutput());
     }
 }

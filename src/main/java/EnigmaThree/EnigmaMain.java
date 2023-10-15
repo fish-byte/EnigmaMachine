@@ -34,6 +34,7 @@ public class EnigmaMain
 
         System.out.println("Please type the message which you want to encrypt or decrypt: ");
         processor.encryptDecrypt(processor.getInMsg());
+        System.out.println(processor.getOutput());
     }
 
 }
