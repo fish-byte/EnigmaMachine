@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5258e173-cda2-4e16-bead-074ebd1b0151" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/enigmaProcessorTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/enigmaProcessorTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697398831185</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Put a string buffer to clean the tests.">
+      <created>1697411898882</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697411898882</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +280,7 @@
     <MESSAGE value="Re-did the whole branch" />
     <MESSAGE value="Added a few more tests and improved the error handling" />
     <MESSAGE value="Changes most of the arrangement and made all the tests pass." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes most of the arrangement and made all the tests pass." />
+    <MESSAGE value="Put a string buffer to clean the tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Put a string buffer to clean the tests." />
   </component>
 </project>
