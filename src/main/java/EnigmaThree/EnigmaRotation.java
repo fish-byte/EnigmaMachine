@@ -11,7 +11,6 @@ public class EnigmaRotation {
     private HashMap<Integer,Integer> rotatorThree;
     private Integer RotatorNumOne;
     private Integer RotatorNumTwo;
-    private Integer RotatorNumThree;
     private Integer rotatorNumberOneOption;
     private Integer rotatorNumberTwoOption;
     private Integer rotatorNumberThreeOption;
