@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5258e173-cda2-4e16-bead-074ebd1b0151" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaRotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +276,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697426019667</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="removes some unused functions from Enigma Rotation class">
+      <created>1697426523355</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697426523355</updated>
+    </task>
+    <task id="LOCAL-00011" summary="removes some unused functions from Enigma Rotation class">
+      <created>1697426540081</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697426540081</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +313,7 @@
     <MESSAGE value="Added words to readme." />
     <MESSAGE value="Changing the name." />
     <MESSAGE value="updated rotating logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated rotating logic" />
+    <MESSAGE value="removes some unused functions from Enigma Rotation class" />
+    <option name="LAST_COMMIT_MESSAGE" value="removes some unused functions from Enigma Rotation class" />
   </component>
 </project>
