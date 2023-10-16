@@ -1,17 +1,17 @@
 import EnigmaThree.EnigmaPlugBox;
 import EnigmaThree.EnigmaProcessor;
-import EnigmaThree.EnigmaRotator;
+import EnigmaThree.EnigmaRotators;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 import static EnigmaThree.EnigmaPlugBox.getPlugs;
 
-public class enigmaProcessorTest2
+public class EnigmaProcessorTest2
 {
     EnigmaProcessor processor = new EnigmaProcessor();
     EnigmaPlugBox plugBox = new EnigmaPlugBox();
-    EnigmaRotator rotator = new EnigmaRotator();
+    EnigmaRotators rotator = new EnigmaRotators();
 
     @Test
     void encryptionTest()

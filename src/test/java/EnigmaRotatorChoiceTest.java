@@ -6,7 +6,7 @@ import static EnigmaTwo.enigmaRotator.*;
 import static EnigmaTwo.enigmaUsrInptAndErrChck.getErrorMessage;
 import static EnigmaTwo.enigmaUsrInptAndErrChck.motorChoice;
 
-public class enigmaRotatorChoiceTest
+public class EnigmaRotatorChoiceTest
 {
     @Test
     void rotatorChoiceTest()
@@ -15,7 +15,7 @@ public class enigmaRotatorChoiceTest
 
         Assertions.assertEquals(getSpindleOne(), getRotatorOne(), "The Rotator Selected was not 1");
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 
     @Test
@@ -27,7 +27,7 @@ public class enigmaRotatorChoiceTest
         Assertions.assertEquals(getSpindleOne(), getRotatorOne(), "The Rotator Selected was not 1");
         Assertions.assertEquals(getSpindleFour(), getRotatorTwo(), "The Rotator Selected was not 4");
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 
     @Test
@@ -41,7 +41,7 @@ public class enigmaRotatorChoiceTest
         Assertions.assertEquals(getSpindleFour(), getRotatorTwo(), "The Rotator Selected was not 4");
         Assertions.assertEquals(getSpindleTwo(), getRotatorThree(), "The Rotator Selected was not 2");
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 
     @Test
@@ -53,6 +53,6 @@ public class enigmaRotatorChoiceTest
 
         Assertions.assertEquals("Motor Choice was entered wrong too many times", getErrorMessage());
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 }

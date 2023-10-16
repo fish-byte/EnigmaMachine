@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static EnigmaTwo.enigmaUsrInptAndErrChck.getErrorMessage;
 
-public class enigmaPlugsTest extends enigmaPlugBox
+public class EnigmaPlugsTest extends enigmaPlugBox
 {
     @Test
     void plugAmtTest()

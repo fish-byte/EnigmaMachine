@@ -1,12 +1,12 @@
-import EnigmaThree.EnigmaInputBridge;
-import EnigmaThree.EnigmaRotator;
+import EnigmaThree.EnigmaRotation;
+import EnigmaThree.EnigmaRotators;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class enigmaRotatorChoiceTest2
+public class EnigmaRotatorChoiceTest2
 {
-    EnigmaInputBridge inputBridge = new EnigmaInputBridge();
-    EnigmaRotator rotator = new EnigmaRotator();
+    EnigmaRotation inputBridge = new EnigmaRotation();
+    EnigmaRotators rotator = new EnigmaRotators();
 
     @Test
     void rotatorChoiceTest()

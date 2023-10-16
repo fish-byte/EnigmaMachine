@@ -12,7 +12,7 @@ import static EnigmaTwo.enigmaInputBridge.*;
 import static EnigmaTwo.enigmaRotator.*;
 import static EnigmaTwo.enigmaUsrInptAndErrChck.*;
 
-public class enigmaProcessorTest extends enigmaPlugBox
+public class EnigmaProcessorTest extends enigmaPlugBox
 {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -54,7 +54,7 @@ public class enigmaProcessorTest extends enigmaPlugBox
         Assertions.assertEquals("{A=B, B=A, C=D, D=C}", enigmaPlugBox.getPlugs().toString(), "The plugs are not there");
         Assertions.assertEquals("OBAY", outputStreamCaptor.toString().trim());
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 
     @Test
@@ -84,6 +84,6 @@ public class enigmaProcessorTest extends enigmaPlugBox
         Assertions.assertEquals("{A=B, B=A, C=D, D=C}", enigmaPlugBox.getPlugs().toString(), "The plugs are not there");
         Assertions.assertEquals("TEST", outputStreamCaptor.toString().trim());
 
-        enigmaTest.clear();
+        EnigmaTest.clear();
     }
 }

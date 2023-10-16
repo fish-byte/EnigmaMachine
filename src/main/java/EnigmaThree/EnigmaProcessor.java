@@ -9,10 +9,10 @@ import java.util.Objects;
 import static EnigmaThree.EnigmaPlugBox.getPlugLetter;
 
 
-public class EnigmaProcessor extends EnigmaInputBridge
+public class EnigmaProcessor extends EnigmaRotation
 {
     private String ErrorMessage;
-    EnigmaRotator rotator = new EnigmaRotator();
+    EnigmaRotators rotator = new EnigmaRotators();
     private HashMap<Integer,Integer> rotateMotor = new HashMap<>();
 
     StringBuffer output = new StringBuffer();

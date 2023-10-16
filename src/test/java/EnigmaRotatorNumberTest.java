@@ -6,7 +6,7 @@ import static EnigmaTwo.enigmaInputBridge.*;
 import static EnigmaTwo.enigmaUsrInptAndErrChck.getErrorMessage;
 import static EnigmaTwo.enigmaUsrInptAndErrChck.rotatorOption;
 
-public class enigmaRotatorNumberTest extends enigmaProcessor
+public class EnigmaRotatorNumberTest extends enigmaProcessor
 {
     @Test
     void rotatorNumberOptionErrorTest()

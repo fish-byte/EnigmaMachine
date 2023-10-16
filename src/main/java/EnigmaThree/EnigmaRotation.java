@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
-public class EnigmaInputBridge {
-    EnigmaRotator rotator = new EnigmaRotator();
+public class EnigmaRotation {
+    EnigmaRotators rotator = new EnigmaRotators();
     private HashMap<Integer,Integer> rotatorOne;
     private HashMap<Integer,Integer> rotatorTwo;
     private HashMap<Integer,Integer> rotatorThree;

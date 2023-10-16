@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class normalTest
+public class NormalTest
 {
     @Test
     void test()

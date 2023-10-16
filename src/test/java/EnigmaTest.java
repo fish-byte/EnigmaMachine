@@ -1,6 +1,6 @@
 import static EnigmaTwo.enigmaInputBridge.*;
 
-public class enigmaTest
+public class EnigmaTest
 {
     public static void clear()
     {

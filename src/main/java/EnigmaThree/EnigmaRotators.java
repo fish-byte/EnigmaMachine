@@ -2,7 +2,7 @@ package EnigmaThree;
 
 import java.util.HashMap;
 
-public class EnigmaRotator
+public class EnigmaRotators
 {
     private HashMap<String, Integer> inputWl = new HashMap<>();
     private HashMap<Integer, Integer> Spindle1 = new HashMap<>();
