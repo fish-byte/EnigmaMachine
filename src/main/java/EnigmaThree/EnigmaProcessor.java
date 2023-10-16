@@ -24,7 +24,6 @@ public class EnigmaProcessor extends EnigmaRotation
             String alpha = String.valueOf(InputLine.charAt(i));
 
             //Rotator Spin
-            //checkNotches();
             notchOneSpin();
             notchTwoSpin();
             notchThreeSpin();
