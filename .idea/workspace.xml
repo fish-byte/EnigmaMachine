@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5258e173-cda2-4e16-bead-074ebd1b0151" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnigmaThree/EnigmaRotation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697414955860</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="updated rotating logic">
+      <created>1697426019667</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697426019667</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,6 +297,7 @@
     <MESSAGE value="Put a string buffer to clean the tests." />
     <MESSAGE value="Added words to readme." />
     <MESSAGE value="Changing the name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing the name." />
+    <MESSAGE value="updated rotating logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated rotating logic" />
   </component>
 </project>

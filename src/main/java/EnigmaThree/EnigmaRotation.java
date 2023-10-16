@@ -66,11 +66,6 @@ public class EnigmaRotation {
         RotatorNumTwo = RotatorNumberTwo;
     }
 
-    public void setRotatorNumberThree(Integer RotatorNumberThree)
-    {
-        RotatorNumThree = RotatorNumberThree;
-    }
-
     public Integer getRotatorNumberOne()
     {
         return RotatorNumOne;
@@ -79,11 +74,6 @@ public class EnigmaRotation {
     public Integer getRotatorNumberTwo()
     {
         return RotatorNumTwo;
-    }
-
-    public Integer getRotatorNumberThree()
-    {
-        return RotatorNumThree;
     }
 
     public HashMap<Integer, Integer> getRotatorOne()
@@ -150,29 +140,6 @@ public class EnigmaRotation {
             setErrorMessage("Error: you didn't enter a valid option");
         }
         return options;
-    }
-
-    public String getInString()
-    {
-        String input = "Error";
-
-        try
-        {
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            input = in.readLine().toUpperCase();
-
-            if (!input.matches("^[A-Z]$"))
-            {
-                input = "Error";
-            }
-        }
-
-        catch (Exception e)
-        {
-            System.out.println("Didn't enter a String");
-            setErrorMessage("Didn't enter a String");
-        }
-        return input;
     }
 
     public Integer getRotatorThreeOption()
