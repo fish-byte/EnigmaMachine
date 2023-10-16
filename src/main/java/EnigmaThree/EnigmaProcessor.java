@@ -24,10 +24,10 @@ public class EnigmaProcessor extends EnigmaRotation
             String alpha = String.valueOf(InputLine.charAt(i));
 
             //Rotator Spin
-            checkNotches();
-            notchOneSpin();
-            notchTwoSpin();
-            notchThreeSpin();
+            //checkNotches();
+            notchOne();
+            notchTwo();
+            notchThree();
 
             //Plug Box
             String one = getPlugLetter(alpha);
@@ -74,7 +74,6 @@ public class EnigmaProcessor extends EnigmaRotation
             //Plug Box
             String twentyFour = getPlugLetter(twentyTwo);
 
-            //System.out.print(twentyFour);
             output.append(twentyFour);
         }
     }
@@ -138,83 +137,101 @@ public class EnigmaProcessor extends EnigmaRotation
         return rotateMotor;
     }
 
-    private void checkNotches()
+    private void notchOne()
     {
-        if (getRotatorOneOption() > 26)
-        {
-            setRotatorOneOption(0);
-        }
+        int r = (getRotatorOneOption() + 1) % 27;
 
-        else if (getRotatorTwoOption() > 26)
+        if (r == 0)
         {
-            setRotatorTwoOption(0);
+            setRotatorOneOption(r+1);
         }
-
-        else if (getRotatorThreeOption() > 26)
+        else
         {
-            setRotatorThreeOption(0);
+            setRotatorOneOption(r);
         }
-
     }
 
-    private void notchOneSpin()
-    {
-        setRotatorOneOption(getRotatorOneOption() + 1);
-    }
-
-    private void notchTwoSpin()
+    private void notchTwo()
     {
         if (getRotatorTwo() == rotator.getSpindleOne() & getRotatorOneOption() == 8)
         {
-            setRotatorTwoOption(getRotatorTwoOption() + 1);
+            notchTwoSpin();
         }
 
         else if (getRotatorTwo() == rotator.getSpindleTwo() & getRotatorOneOption() == 5)
         {
-            setRotatorTwoOption(getRotatorTwoOption() + 1);
+            notchTwoSpin();
         }
 
         else if (getRotatorTwo() == rotator.getSpindleThree() & getRotatorOneOption() == 12)
         {
-            setRotatorTwoOption(getRotatorTwoOption() + 1);
+            notchTwoSpin();
         }
 
         else if (getRotatorTwo() == rotator.getSpindleFour() & getRotatorOneOption() == 18)
         {
-            setRotatorTwoOption(getRotatorTwoOption() + 1);
+            notchTwoSpin();
         }
 
         else if (getRotatorTwo() == rotator.getSpindleFive() & getRotatorOneOption() == 21)
         {
-            setRotatorTwoOption(getRotatorTwoOption() + 1);
+            notchTwoSpin();
+        }
+    }
+
+    private void notchTwoSpin()
+    {
+        int r = (getRotatorTwoOption() + 1) % 27;
+
+        if (r == 0)
+        {
+            setRotatorTwoOption(r+1);
+        }
+        else
+        {
+            setRotatorTwoOption(r);
+        }
+    }
+
+    private void notchThree()
+    {
+        if (getRotatorThree() == rotator.getSpindleOne() & getRotatorTwoOption() == 20)
+        {
+            notchThreeSpin();
+        }
+
+        else if (getRotatorThree() == rotator.getSpindleTwo() & getRotatorTwoOption() == 15)
+        {
+            notchThreeSpin();
+        }
+
+        else if (getRotatorThree() == rotator.getSpindleThree() & getRotatorTwoOption() == 18)
+        {
+            notchThreeSpin();
+        }
+
+        else if (getRotatorThree() == rotator.getSpindleFour() & getRotatorTwoOption() == 10)
+        {
+            notchThreeSpin();
+        }
+
+        else if (getRotatorTwo() == rotator.getSpindleFive() & getRotatorTwoOption() == 6)
+        {
+            notchThreeSpin();
         }
     }
 
     private void notchThreeSpin()
     {
-        if (getRotatorThree() == rotator.getSpindleOne() & getRotatorTwoOption() == 20)
-        {
-            setRotatorThreeOption(getRotatorThreeOption() + 1);
-        }
+        int r = (getRotatorThreeOption() + 1) % 27;
 
-        else if (getRotatorThree() == rotator.getSpindleTwo() & getRotatorTwoOption() == 15)
+        if (r == 0)
         {
-            setRotatorThreeOption(getRotatorThreeOption() + 1);
+            setRotatorThreeOption(r+1);
         }
-
-        else if (getRotatorThree() == rotator.getSpindleThree() & getRotatorTwoOption() == 18)
+        else
         {
-            setRotatorThreeOption(getRotatorThreeOption() + 1);
-        }
-
-        else if (getRotatorThree() == rotator.getSpindleFour() & getRotatorTwoOption() == 10)
-        {
-            setRotatorThreeOption(getRotatorThreeOption() + 1);
-        }
-
-        else if (getRotatorTwo() == rotator.getSpindleFive() & getRotatorTwoOption() == 6)
-        {
-            setRotatorThreeOption(getRotatorThreeOption() + 1);
+            setRotatorThreeOption(r);
         }
     }
 
@@ -255,7 +272,8 @@ public class EnigmaProcessor extends EnigmaRotation
     {
         if (msg.contains("Error"))
         {
-            System.out.println("The input was not valid, it needs to be only letters");
+            setErrorMessage("The input was not valid, it needs to be only letters");
+            System.out.println(getErrorMessage());
             System.out.println("Please type the message which you want to encrypt or decrypt: ");
             encryptDecrypt(getInMsg());
         }

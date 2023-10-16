@@ -7,6 +7,7 @@ public class EnigmaMain
     {
         EnigmaProcessor processor = new EnigmaProcessor();
         EnigmaPlugBox plugBox = new EnigmaPlugBox();
+
         System.out.println("Please choose 3 motors between 1 - 5");
 
         System.out.println("Please choose first motor: ");
